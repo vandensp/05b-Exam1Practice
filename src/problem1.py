@@ -3,8 +3,8 @@ PRACTICE Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Valerie Galluzzi, Mark Hays, Amanda Stouder, Aaron Wilkin,
-         their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues, and Samuel VanDenburgh.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -38,7 +38,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the green doc-string for the:
+# Done: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -137,7 +137,8 @@ def run_test_problem1a():
     actual = problem1a(30, 100)
     print_actual_result_of_test(expected, actual, test_results, precision=3)
 
-    print_summary_of_test_results(test_results)
+
+
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -149,6 +150,21 @@ def run_test_problem1a():
     #   print('       actual:  ', actual)
     # -------------------------------------------------------------------------
 
+    # Test 3:
+    expected = 1  # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([30, 100], expected, test_results,
+                                  format_string)
+    actual = problem1a(30, 100)
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+    # Test 4:
+    expected =1   # This is APPROXIMATELY the correct answer.
+    print_expected_result_of_test([1, 1], expected, test_results,
+                                  format_string)
+    actual = problem1a(1,1 )
+    print_actual_result_of_test(expected, actual, test_results, precision=3)
+
+    print_summary_of_test_results(test_results)
 
 def problem1a(m, n):
     """
@@ -167,6 +183,11 @@ def problem1a(m, n):
          which is about 1.135.
       -- If m is 30 and n is 100, the correct answer is about 1.278.
     """
+    total = 0
+    for k in range ((n ** 2) - (m ** 2) + 1):
+        total = total + (k + (m ** 2))
+        
+    return total
     # -------------------------------------------------------------------------
     # TODO: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
