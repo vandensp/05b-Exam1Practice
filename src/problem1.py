@@ -27,14 +27,26 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
 ###############################################################################
 
 import testing_helper
-import time
+import math
+import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
-    run_test_problem1b()
-    run_test_problem1c()
+    #run_test_problem1b()
+    #run_test_problem1c()
+    r = 66
+    r2 = r
+    center = rg.Point(90, 40)
+    circle = rg.Circle(center, r)
+    r = 35
+    center.x = 200
+
+    print(r)
+    print(r2)
+    print(center)
+    print(circle)
 
 
 ###############################################################################
@@ -106,7 +118,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this TEST function.
+    # Done: Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # -------------------------------------------------------------------------
@@ -137,8 +149,7 @@ def run_test_problem1a():
     actual = problem1a(30, 100)
     print_actual_result_of_test(expected, actual, test_results, precision=3)
 
-
-
+    print_summary_of_test_results(test_results)
 
     # -------------------------------------------------------------------------
     # TO DO: 2 (continued).
@@ -151,20 +162,16 @@ def run_test_problem1a():
     # -------------------------------------------------------------------------
 
     # Test 3:
-    expected = 1  # This is APPROXIMATELY the correct answer.
-    print_expected_result_of_test([30, 100], expected, test_results,
-                                  format_string)
-    actual = problem1a(30, 100)
-    print_actual_result_of_test(expected, actual, test_results, precision=3)
+    expected = 0.84147 # This is APPROXIMATELY the correct answer.
+    actual = problem1a(0, 1)
+    print('Test 3 expected:', expected)
+    print('       actual:', actual)
 
     # Test 4:
-    expected =1   # This is APPROXIMATELY the correct answer.
-    print_expected_result_of_test([1, 1], expected, test_results,
-                                  format_string)
-    actual = problem1a(1,1 )
-    print_actual_result_of_test(expected, actual, test_results, precision=3)
-
-    print_summary_of_test_results(test_results)
+    expected = 0.06332   # This is APPROXIMATELY the correct answer.
+    actual = problem1a(2, 3)
+    print('Test 3 expected:', expected)
+    print('       actual:', actual)
 
 def problem1a(m, n):
     """
@@ -185,11 +192,12 @@ def problem1a(m, n):
     """
     total = 0
     for k in range ((n ** 2) - (m ** 2) + 1):
-        total = total + (k + (m ** 2))
+        total = total + math.sin(k + (m ** 2))
+    return total
         
     return total
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
