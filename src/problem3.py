@@ -102,10 +102,10 @@ def run_test_problem3a():
     title = 'Problem 3a. Test 5: Start at (50, 100), 7 lines'
     window4 = rg.RoseWindow(450, 300, title)
 
-    # Test 4 (it is on window 3):
+    # Test 4 (it is on window 4):
     point = rg.Point(50, 100)
     expected = 49
-    answer = problem3a(window3, point, 7)
+    answer = problem3a(window4, point, 7)
     print()
     print('Test 5 expected:', expected)
     print('       actual:  ', answer)
@@ -152,7 +152,7 @@ def problem3a(window, point, n):
         :type n:      int
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # -------------------------------------------------------------------------
     # -------------------------------------------------------------------------
