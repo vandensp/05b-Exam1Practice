@@ -31,8 +31,8 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem2a()
-    #run_test_problem2b()
+    #run_test_problem2a()
+    run_test_problem2b()
 
 
 def run_test_problem2a():
@@ -198,7 +198,17 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
+    rectangle = rect
+    for k in range (n + 1):
+        rectangle.attach_to(win)
+        c1 = rg.Point(rect.corner_1.x - (delta * k) , rect.corner_1.y - (delta * k))
+        c2 = rg.Point(rect.corner_2.x + (delta * k), rect.corner_2.y + (delta * k))
+        print(c1, c2)
 
+        rectangle = rg.Rectangle(c1, c2)
+
+
+    win.render()
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
