@@ -199,15 +199,16 @@ def problem2b(rect, n, delta, win):
     #    TIME ESTIMATE:   15 to 25 minutes.
     # -------------------------------------------------------------------------
     rect.attach_to(win)
-    print(type(rect))
+    #print(type(rect))
     for k in range (n + 1):
-        rectangle = rect
-        x1 = rectangle.get_upper_left_corner().x - (delta * k)
-        y1 = rectangle.get_upper_left_corner().y - (delta * k)
+        x1 = rect.get_upper_left_corner().x - (delta * k)
+        y1 = rect.get_upper_left_corner().y - (delta * k)
 
+        x2 = rect.get_lower_right_corner().x + (delta * k)
+        y2 = rect.get_lower_right_corner().y + (delta * k)
 
         c1 = rg.Point(x1 , y1)
-        c2 = rg.Point(rect.get_lower_right_corner().x + (delta * k), rect.get_lower_right_corner().y + (delta * k))
+        c2 = rg.Point(x2, y2)
         #print(c1, c2)
 
         rectangle = rg.Rectangle(c1, c2)
