@@ -127,7 +127,7 @@ def problem3a(window, point, n):
     What comes in:
       -- An rg.RoseWindow.
       -- An rg.Point.
-      -- A nonnegative integer n.
+      -- A non-negative integer n.
     What goes out:
       -- Returns the sum of the thicknesses of the rg.Lines
          that are drawn as described in the Side effects (below).
@@ -160,6 +160,19 @@ def problem3a(window, point, n):
     #    DIFFICULTY:      7 or 8
     #    TIME ESTIMATE:   20 to 35 minutes.
     # -------------------------------------------------------------------------
+    thicc = 0
+    for k in range (n):
+        p1 = rg.Point(point.x + (20 * k), point.y + (10 * k))
+        p2 = rg.Point(point.x + (20 * k),point.y + 50 + (10 * k))
+        line = rg.Line(p1, p2)
+        line.thickness = 1 + (2 * k)
+        if line.thickness > 13:
+            line.thickness = 13
+        line.attach_to(window)
+        thicc = thicc + line.thickness
+    window.render()
+    return thicc
+
 
 
 def run_test_problem3b():
@@ -177,7 +190,6 @@ def run_test_problem3b():
     print()
     print('Test 2 expected:', expected)
     print('       actual:  ', answer)
-
 
 def problem3b(m, point1):
     """
